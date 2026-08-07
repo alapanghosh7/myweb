@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - [Brand Name]</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PASTE YOUR HEADER FROM index.html HERE -->
+
+      <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo font-serif">[Brand Name]</a>
+            
+            <!-- Desktop Nav -->
+            <nav class="nav-links">
+                <a href="shop.html">Shop</a>
+                <a href="story.html">Our Story</a>
+                <a href="traceability.html">Quality & Traceability</a>
+                <a href="recipes.html">Recipes</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+            
+            <!-- Cart & Mobile Menu -->
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="#" class="cart-icon-btn text-brand-green" style="font-weight: bold;">🛒 (0)</a>
+                <button id="mobileMenuBtn" class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav (Hidden on Desktop) -->
+        <div id="mobileNav" class="mobile-nav">
+            <a href="shop.html">Shop</a>
+            <a href="story.html">Our Story</a>
+            <a href="traceability.html">Quality & Traceability</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </header>
+
+    <div class="story-header">
+        <h1 class="font-serif">From Local Dairy Heritage to Your Kitchen</h1>
+        <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.9;">
+            Bringing our family's long-standing connection with milk and dairy into modern homes with care, clarity, and accountability.
+        </p>
+    </div>
+
+    <div class="container" style="padding: 60px 20px;">
+        <!-- Founder Message -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; margin-bottom: 80px;">
+            <div style="height: 400px; background: #eee; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888;">
+                [Founder Image Placeholder]
+            </div>
+            <div>
+                <h2 class="font-serif" style="margin-bottom: 20px; font-size: 2rem;">A Heritage Built on Milk</h2>
+                <p style="margin-bottom: 15px;">For generations, the name Ghosh has been closely connected with milk and dairy in [Region]. We grew up understanding the nuances of good milk, traditional churning, and the unmistakable aroma of pure, well-made ghee.</p>
+                <p style="margin-bottom: 15px;">Today, as food supply chains become longer and more complex, we noticed it was becoming harder to find ghee that carried that original, uncompromised honesty. That is why we started [Brand Name].</p>
+                <p style="font-weight: 600;">Our commitment is simple: Preserving traditional preparation while enforcing strict, modern quality discipline.</p>
+            </div>
+        </div>
+
+        <!-- Local Partner Section -->
+        <div style="background: var(--brand-ivory); padding: 40px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.3); text-align: center; margin-bottom: 80px;">
+            <h2 class="font-serif" style="margin-bottom: 15px;">Rooted in [Region]</h2>
+            <p style="max-width: 700px; margin: 0 auto;">We don't just buy milk; we partner with local farmers. By maintaining direct relationships with local dairy producers, we ensure fair practices at the source and consistent quality in every jar we pack.</p>
+        </div>
+
+        <!-- Timeline -->
+        <h2 class="font-serif" style="text-align: center; font-size: 2rem;">Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Our Heritage</div>
+                <h3 class="font-serif">The Foundation in Dairy</h3>
+                <p>The Ghosh family builds a strong reputation in the local community for understanding and sourcing quality dairy.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">[Launch Year]</div>
+                <h3 class="font-serif">[Brand Name] is Born</h3>
+                <p>Bridging traditional knowledge with modern quality testing. We launched our first batch of fully traceable ghee, committing to absolute transparency.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Looking Forward</div>
+                <h3 class="font-serif">The Future of Honest Food</h3>
+                <p>Continuing to serve homes across India while maintaining our strict batch-level traceability and local sourcing ethics.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PASTE YOUR FOOTER FROM index.html HERE -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h3 class="font-serif" style="margin-bottom: 15px;">[Brand Name]</h3>
+                <p style="opacity: 0.8; font-size: 0.9rem;">Traditional Ghee. Tested with Trust.</p>
+                <p style="opacity: 0.8; font-size: 0.8rem; margin-top: 10px;">FSSAI: [FSSAI Number]</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="shop.html">Shop Ghee</a></li>
+                    <li><a href="story.html">Our Story</a></li>
+                    <li><a href="scan.html">Scan Your Batch</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li>WhatsApp: [WhatsApp]</li>
+                    <li>Email: [Email]</li>
+                    <li>[Address]</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid rgba(250,250,245,0.2); padding-top: 20px; font-size: 0.8rem; opacity: 0.7;">
+            © 2024 [Brand Name]. Made with care in [Region], India.
+        </div>
+    </footer>
+
+    <!-- SLIDE-OUT CART DRAWER -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h2 class="font-serif" style="font-size: 1.5rem;">Your Cart</h2>
+            <button class="close-cart" id="closeCart">×</button>
+        </div>
+        <div class="cart-items">
+            <!-- Empty state -->
+            <div style="text-align: center; color: #888; margin-top: 50px;">
+                <p>Your cart is currently empty.</p>
+                <a href="shop.html" class="btn-primary" style="margin-top: 20px;">Continue Shopping</a>
+            </div>
+            
+            <!-- Example of a populated cart item (Hidden for now) -->
+            <!-- 
+            <div style="display: flex; gap: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                <div style="width: 80px; height: 80px; background: #f9f9f9;"></div>
+                <div style="flex: 1;">
+                    <h4 class="font-serif">[Brand Name] Traditional Ghee</h4>
+                    <p style="font-size: 0.8rem; color: #666;">500g Jar</p>
+                    <p style="font-weight: bold; color: var(--brand-gold);">₹[Price]</p>
+                </div>
+            </div> 
+            -->
+        </div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: bold; font-size: 1.2rem;">
+                <span>Subtotal</span>
+                <span>₹0.00</span>
+            </div>
+            <p style="font-size: 0.8rem; color: #666; margin-bottom: 15px;">Shipping and taxes calculated at checkout.</p>
+            <button class="checkout-btn">Proceed to Secure Checkout</button>
+            <div style="text-align: center; margin-top: 10px; font-size: 0.8rem; opacity: 0.8;">
+                💳 Cards, UPI & Net Banking Accepted
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
