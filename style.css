@@ -1525,30 +1525,33 @@ footer {
   margin-top: 30px;
 }
 
-/* --- STRICT MOBILE OVERRIDE --- */
+/* --- STRICT MOBILE OVERRIDE (BACKGROUND & BUTTONS) --- */
 @media (max-width: 768px) {
   
-  /* 1. Force Hero Background Transparency */
-  .hero {
-    background-color: transparent !important; /* Stops the hero section from blocking the image */
-  }
-  
+  /* 1. Hide the old buggy floating background entirely */
   .village-side-bg {
-    display: block !important;
-    opacity: 0.15 !important; 
-    -webkit-mask-image: none !important; 
-    mask-image: none !important;
-    background-position: center center !important;
-    background-size: cover !important;
+    display: none !important;
   }
 
-  /* 2. Force Perfect Button Alignment */
+  /* 2. Style the new protective overlay (0.80 = 80% opacity) */
+  .hero-mobile-overlay {
+    display: block !important;
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background-color: rgba(250, 250, 245, 0.80) !important;
+    z-index: 1;
+  }
+
+  /* 3. Your Working Button Alignment (Unchanged) */
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
-    max-width: 320px !important; /* Locks both buttons into a strict, perfectly centered column */
+    max-width: 320px !important; 
     margin: 30px auto 0 auto !important; 
     padding: 0 !important;
     gap: 15px !important;
@@ -1563,5 +1566,12 @@ footer {
     display: flex !important; 
     justify-content: center !important;
     align-items: center !important;
+  }
+}
+
+/* Hide the overlay on Desktop so the CSS Mask continues to work normally */
+@media (min-width: 769px) {
+  .hero-mobile-overlay {
+    display: none;
   }
 }
