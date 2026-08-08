@@ -89,28 +89,22 @@ header {
 --------------------------------------------------- */
 
 /* 1. REAL PC SCREENS (1025px and wider) */
-.hero .container p {
-  max-width: 750px !important; 
-  margin: 0 auto 25px auto !important; 
-  line-height: 1.6 !important;
-  font-weight: 500 !important;
-  text-shadow: 0 0 15px rgba(250, 250, 245, 1), 0 0 30px rgba(250, 250, 245, 0.8) !important;
+/* --- 1. REAL PC SCREENS (Mouse Pointer) --- */
+.hero-desc {
+  width: 100%;
+  max-width: 750px; /* Wide and natural for a real computer monitor */
+  margin: 0 auto 25px auto;
+  line-height: 1.6;
+  font-weight: 500;
+  text-shadow: 0 0 15px rgba(250, 250, 245, 1), 0 0 30px rgba(250, 250, 245, 0.8);
 }
 
-/* 2. MOBILE "DESKTOP MODE" & TABLETS (Screens 769px to 1024px) */
-/* This catches the exact 980px virtual width that phones fake in Desktop Mode */
-@media (max-width: 1024px) {
-  .hero .container p {
-    max-width: 480px !important; /* Forcibly shrinks the text box to avoid the cow/farmer */
-    font-weight: 600 !important; /* Slightly bolder to stand out */
-    text-shadow: 0 0 10px rgba(250, 250, 245, 1), 0 0 20px rgba(250, 250, 245, 0.9) !important;
-  }
-}
-
-/* 3. REGULAR MOBILE VIEW (Screens 768px and smaller) */
-@media (max-width: 768px) {
-  .hero .container p {
-    max-width: 90% !important; /* Allows text to use the available space naturally */
+/* --- 2. ANY TOUCHSCREEN DEVICE (Mobile/Tablet in Desktop Mode) --- */
+@media (pointer: coarse) {
+  .hero-desc {
+    max-width: 480px !important; /* Forcibly shrinks the text box to avoid the cow and farmer */
+    font-weight: 600 !important; /* Slightly bolder to fight the background */
+    padding: 0 15px !important;
   }
 }
 
