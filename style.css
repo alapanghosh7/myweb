@@ -1525,21 +1525,43 @@ footer {
   margin-top: 30px;
 }
 
-/* Mobile adjustments for the buttons */
+/* --- STRICT MOBILE OVERRIDE --- */
 @media (max-width: 768px) {
+  
+  /* 1. Force Hero Background Transparency */
+  .hero {
+    background-color: transparent !important; /* Stops the hero section from blocking the image */
+  }
+  
+  .village-side-bg {
+    display: block !important;
+    opacity: 0.15 !important; 
+    -webkit-mask-image: none !important; 
+    mask-image: none !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  /* 2. Force Perfect Button Alignment */
   .hero-buttons {
-    flex-direction: column; /* Stacks the buttons vertically */
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-    gap: 15px; /* Adds perfect spacing between the stacked buttons */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 320px !important; /* Locks both buttons into a strict, perfectly centered column */
+    margin: 30px auto 0 auto !important; 
+    padding: 0 !important;
+    gap: 15px !important;
   }
   
   .hero-buttons .btn-primary, 
   .hero-buttons .btn-secondary {
-    width: 100%; /* Forces both buttons to be exactly the same width */
-    text-align: center;
-    box-sizing: border-box;
-    padding: 15px 20px; /* Makes them slightly taller and easier to tap on phones */
+    width: 100% !important; 
+    max-width: 100% !important;
+    margin: 0 !important; 
+    box-sizing: border-box !important; 
+    display: flex !important; 
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
