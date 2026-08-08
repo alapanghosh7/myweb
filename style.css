@@ -90,6 +90,22 @@ header {
   text-shadow: 0 0 15px rgba(250, 250, 245, 1), 0 0 30px rgba(250, 250, 245, 0.8);
 }
 
+/* --- HERO PARAGRAPH READABILITY FIX --- */
+.hero .container p {
+  max-width: 550px !important; /* This strictly pulls the text inward, away from the farmer and cow */
+  margin: 0 auto 25px auto !important; /* Perfectly centers the block of text */
+  padding: 0 15px !important; /* Adds a small invisible bumper on the sides */
+  line-height: 1.6 !important;
+  font-weight: 500 !important;
+  color: #333 !important; /* Ensures the text is a strong dark color */
+  
+  /* Creates a seamless white glow behind the letters so they never blend into dark parts of the image */
+  text-shadow: 
+    0 0 10px rgba(250, 250, 245, 1), 
+    0 0 20px rgba(250, 250, 245, 0.9),
+    0 0 30px rgba(250, 250, 245, 0.8) !important;
+}
+
 .btn-primary {
   background-color: var(--brand-green);
   color: var(--brand-ivory);
