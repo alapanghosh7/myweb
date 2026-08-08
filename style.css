@@ -1442,7 +1442,8 @@ footer {
   display: flex;
   gap: 30px;
   padding-right: 30px;
-  flex-shrink: 0; /* Prevents cards from getting squeezed */
+  flex-shrink: 0;
+  align-items: flex-start; /* CRUCIAL: Stops un-hovered cards from stretching down! */
 }
 
 /* --- FIX FOR CUT-OFF HEADS --- */
@@ -1600,4 +1601,33 @@ footer {
   .hero-mobile-overlay {
     display: none;
   }
+}
+
+
+/* --- PREMIUM "TAP TO READ" INDICATOR --- */
+.tap-indicator {
+  color: #D4AF37; /* Premium Gold */
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 15px;
+  opacity: 1;
+  transition: all 0.4s ease;
+  animation: gentlePulse 2s infinite; /* Adds a sophisticated breathing effect */
+}
+
+/* Instantly and smoothly hides the indicator when the card is expanded */
+.interactive-card:hover .tap-indicator {
+  opacity: 0;
+  margin-top: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* The subtle glowing animation */
+@keyframes gentlePulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; text-shadow: 0 0 12px rgba(212, 175, 55, 0.6); }
+  100% { opacity: 0.4; }
 }
