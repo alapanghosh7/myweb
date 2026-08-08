@@ -163,26 +163,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 track.scrollLeft = scrollLeft - walk;
             });
 
-
-            
-           // Pause on Hover (Desktop) & Touch (Mobile Fix)
-    const cards = document.querySelectorAll('.interactive-card');
-    cards.forEach(card => {
-        // Desktop Mouse Events
-        card.addEventListener('mouseenter', () => isHovered = true);
-        card.addEventListener('mouseleave', () => isHovered = false);
-        
-        // Mobile Touch Events (Fixed)
-        card.addEventListener('touchstart', () => {
-            isHovered = true;
-        }, {passive: true});
-        
-        // Ensures the slider resumes scrolling after touching the screen
-        document.addEventListener('touchend', () => {
-            setTimeout(() => {
-                isHovered = false;
-                isDown = false; // Also resets the drag state just in case
-            }, 1000); 
+            // Pause on Hover & Touch
+            const cards = document.querySelectorAll('.interactive-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => isHovered = true);
+                card.addEventListener('mouseleave', () => isHovered = false);
+                card.addEventListener('touchstart', () => isHovered = true, {passive: true});
+                card.addEventListener('touchend', () => {
+                    setTimeout(() => isHovered = false, 1500); // Resumes 1.5s after touch ends
+                });
+            });
         });
-    });
     
