@@ -1526,40 +1526,42 @@ footer {
 }
 
 /* --- STRICT MOBILE OVERRIDE --- */
-/* --- BULLETPROOF MOBILE BACKGROUND --- */
 @media (max-width: 768px) {
   
-  /* 1. Hide the buggy fixed background on mobile */
-  .village-side-bg {
-    display: none !important;
-  }
-
-  /* 2. Apply the image directly to the Hero section */
+  /* 1. Force Hero Background Transparency */
   .hero {
-    position: relative;
-    /* UPDATE THIS LINK TO YOUR ACTUAL IMAGE FILE */
-    background-image: url('YOUR_IMAGE_NAME.jpg') !important; 
+    background-color: transparent !important; /* Stops the hero section from blocking the image */
+  }
+  
+  .village-side-bg {
+    display: block !important;
+    opacity: 0.15 !important; 
+    -webkit-mask-image: none !important; 
+    mask-image: none !important;
+    background-position: center center !important;
     background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-color: transparent !important;
   }
 
-  /* 3. Add a beautiful soft ivory overlay so the text remains perfectly readable */
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0;
-    background-color: rgba(250, 250, 245, 0.85) !important; /* Ivory color with 85% opacity */
-    z-index: 0;
+  /* 2. Force Perfect Button Alignment */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 320px !important; /* Locks both buttons into a strict, perfectly centered column */
+    margin: 30px auto 0 auto !important; 
+    padding: 0 !important;
+    gap: 15px !important;
   }
-
-  /* 4. Ensure the text and buttons sit safely above the new background layer */
-  .hero .container {
-    position: relative;
-    z-index: 1;
+  
+  .hero-buttons .btn-primary, 
+  .hero-buttons .btn-secondary {
+    width: 100% !important; 
+    max-width: 100% !important;
+    margin: 0 !important; 
+    box-sizing: border-box !important; 
+    display: flex !important; 
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
