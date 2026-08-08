@@ -850,12 +850,13 @@ footer {
   -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(0,0,0,1) 100%);
   mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(0,0,0,1) 100%);
 }
-/* Mobile Adjustment: Since mobile screens don't have "sides", we remove the mask and lower the opacity to a very faint watermark */
+/* --- MOBILE BACKGROUND FIX --- */
 @media (max-width: 768px) {
   .village-side-bg {
-    -webkit-mask-image: none;
-    mask-image: none;
-    opacity: 0.08; 
+    opacity: 0.25; /* Brings the image back into view */
+    /* Uses a top-to-bottom fade instead of left-to-right for mobile */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(0,0,0,0.8) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(0,0,0,0.8) 100%);
   }
 }
 
@@ -1392,23 +1393,53 @@ footer {
   margin-bottom: 10px;
 }
 
+/* --- UPDATED TRACK FOR SWIPING --- */
+/* --- UPDATED TRACK FOR SWIPING --- */
 .review-marquee-track {
   display: flex;
-  width: fit-content;
-  /* Adjust the 45s to make the scrolling faster or slower */
-  animation: reviewScroll 45s linear infinite;
-  padding: 20px 0;
+  width: 100%;
+  overflow-x: auto; /* Enables native manual swiping */
+  padding: 20px;
+  scroll-behavior: auto;
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar in IE */
+  cursor: grab; /* Shows a hand icon to indicate draggable */
 }
 
-/* PAUSES THE ENTIRE SLIDER WHEN HOVERED */
-.review-marquee-track:hover {
-  animation-play-state: paused;
+/* Hides scrollbar in Chrome/Safari */
+.review-marquee-track::-webkit-scrollbar {
+  display: none; 
+}
+
+.review-marquee-track:active {
+  cursor: grabbing; /* Hand closes when dragging */
 }
 
 .review-marquee-content {
   display: flex;
   gap: 30px;
   padding-right: 30px;
+  flex-shrink: 0; /* Prevents cards from getting squeezed */
+}
+
+/* --- FIX FOR CUT-OFF HEADS --- */
+.interactive-img {
+  width: 140px; 
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center; /* CRUCIAL: Pins the image to the top so heads stay visible */
+  border: 4px solid var(--brand-gold);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-bottom: 15px;
+}
+
+.interactive-card:hover .interactive-img {
+  width: 100%; 
+  height: 200px; 
+  border-radius: 12px; 
+  border-width: 0; 
+  object-position: top center; /* Keeps the head perfectly framed when expanded */
 }
 
 /* Default Card State */
@@ -1482,4 +1513,33 @@ footer {
 @keyframes reviewScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); } /* Shifts exactly one block over to loop seamlessly */
+}
+
+
+
+/* --- HERO BUTTONS ALIGNMENT --- */
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Mobile adjustments for the buttons */
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column; /* Stacks the buttons vertically */
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    gap: 15px; /* Adds perfect spacing between the stacked buttons */
+  }
+  
+  .hero-buttons .btn-primary, 
+  .hero-buttons .btn-secondary {
+    width: 100%; /* Forces both buttons to be exactly the same width */
+    text-align: center;
+    box-sizing: border-box;
+    padding: 15px 20px; /* Makes them slightly taller and easier to tap on phones */
+  }
 }
