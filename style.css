@@ -81,15 +81,6 @@ header {
 
 /* --- HERO TEXT READABILITY FIX --- */
 /* --- HERO TEXT READABILITY FIX --- */
-.hero p {
-  max-width: 650px; /* Constrains the width so it doesn't touch the cows/farmer */
-  margin: 0 auto 25px auto; /* Centers the text perfectly */
-  line-height: 1.6;
-  font-weight: 500;
-  /* Adds a seamless, soft white glow behind the text so it never blends into the background */
-  text-shadow: 0 0 15px rgba(250, 250, 245, 1), 0 0 30px rgba(250, 250, 245, 0.8);
-}
-
 /* --- HERO PARAGRAPH READABILITY FIX --- */
 .hero .container p {
   max-width: 550px !important; /* This strictly pulls the text inward, away from the farmer and cow */
@@ -105,6 +96,8 @@ header {
     0 0 20px rgba(250, 250, 245, 0.9),
     0 0 30px rgba(250, 250, 245, 0.8) !important;
 }
+
+
 
 .btn-primary {
   background-color: var(--brand-green);
