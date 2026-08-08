@@ -118,3 +118,60 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('reviewTrack');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let isHovered = false;
+            let scrollSpeed = 1; // You can change this to 2 to make it scroll faster
+
+            // The continuous automatic loop
+            function autoScroll() {
+                if (!isHovered && !isDown) {
+                    track.scrollLeft += scrollSpeed;
+                }
+
+                // Seamlessly loops forward or backward infinitely
+                if (track.scrollLeft >= track.scrollWidth / 2) {
+                    track.scrollLeft -= track.scrollWidth / 2;
+                } else if (track.scrollLeft <= 0) {
+                    track.scrollLeft += track.scrollWidth / 2;
+                }
+
+                requestAnimationFrame(autoScroll);
+            }
+
+            requestAnimationFrame(autoScroll); // Start the engine
+
+            // Manual Drag-to-Scroll for Desktop
+            track.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - track.offsetLeft;
+                scrollLeft = track.scrollLeft;
+            });
+            track.addEventListener('mouseleave', () => { isDown = false; });
+            track.addEventListener('mouseup', () => { isDown = false; });
+            track.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - track.offsetLeft;
+                const walk = (x - startX) * 2; // Multiplier adjusts drag sensitivity
+                track.scrollLeft = scrollLeft - walk;
+            });
+
+            // Pause on Hover & Touch
+            const cards = document.querySelectorAll('.interactive-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => isHovered = true);
+                card.addEventListener('mouseleave', () => isHovered = false);
+                card.addEventListener('touchstart', () => isHovered = true, {passive: true});
+                card.addEventListener('touchend', () => {
+                    setTimeout(() => isHovered = false, 1500); // Resumes 1.5s after touch ends
+                });
+            });
+        });
+    
